@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8888:8888
+    command: jupyter lab --port=8888 --no-browser --ip=0.0.0.0 --allow-root -ServerApp.token=''
+    volumes:
+      - ./:/app
+    expose:
+      - 8888
+
